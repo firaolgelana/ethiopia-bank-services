@@ -1,20 +1,17 @@
 import Image from "next/image";
+import AvailableBanks from "../components/available_banks";
 
 export default function Home() {
   return (
     <>
       {/* NAVBAR */}
-      {/* 
-        - h-16: Matches 64px
-        - bg-black/40 backdrop-blur-md: Matches the transparent glass effect
-        - z-50: Ensures it stays on top 
-      */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between bg-black/40 px-8 text-white backdrop-blur-md">
-        <div className="font-bold text-xl">MyApp</div>
-        <div className="flex gap-4">
-          <a href="#" className="hover:text-primary/80 transition-colors">Home</a>
-          <a href="#" className="hover:text-primary/80 transition-colors">Features</a>
-          <a href="#" className="hover:text-primary/80 transition-colors">Contact</a>
+      <nav className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between bg-black/40 px-8 text-white backdrop-blur-md border-b border-white/10">
+        <div className="font-bold text-xl tracking-wider">ETHIO-BANK</div>
+        <div className="hidden md:flex gap-6 text-sm font-medium">
+          <a href="#" className="hover:text-primary transition-colors">Home</a>
+          <a href="#" className="hover:text-primary transition-colors">Services</a>
+          <a href="#" className="hover:text-primary transition-colors">Banks</a>
+          <a href="#" className="hover:text-primary transition-colors">Contact</a>
         </div>
       </nav>
 
@@ -54,12 +51,13 @@ export default function Home() {
          - bg-background: Uses your theme's main background color
          - text-foreground: Uses your theme's main text color
       */}
-      <section className="flex min-h-screen flex-col justify-center bg-background px-8 py-16 text-foreground">
+      {/* <section className="flex min-h-screen flex-col justify-center bg-background px-8 py-16 text-foreground">
         <h2 className="text-3xl font-bold mb-4">Features</h2>
         <p className="text-muted-foreground text-lg">
           This section scrolls normally and adapts to your theme colors.
         </p>
-      </section>
+      </section> */}
+      <AvailableBanks/>
 
       {/* ANOTHER SECTION (More Content) */}
       {/* 
