@@ -15,7 +15,7 @@ import Image from "next/image";
 // 1. MOCK DATA: Realistic Ethiopian Bank Rates (Annual %)
 // In a real app, this would come from your Database/API
 const BANK_RATES = [
-  { id: "cbe", name: "Commercial Bank of Ethiopia", savingsRate: 7.0, fixedRate: 8.5, color: "#6F2C91", minFixed: 10000 },
+  { id: "cbe", name: "Commercial Bank of Ethiopia", savingsRate: 10.0, fixedRate: 8.5, color: "#6F2C91", minFixed: 10000 },
   { id: "awash", name: "Awash Bank", savingsRate: 8.0, fixedRate: 10.5, color: "#F7941D", minFixed: 50000 },
   { id: "dashen", name: "Dashen Bank", savingsRate: 7.5, fixedRate: 10.0, color: "#00539C", minFixed: 25000 },
   { id: "abyssinia", name: "Bank of Abyssinia", savingsRate: 8.0, fixedRate: 11.0, color: "#FDC300", minFixed: 50000 },

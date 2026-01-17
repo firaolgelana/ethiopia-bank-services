@@ -5,6 +5,7 @@ import ExchangeRates from "../components/exchange_rates";
 import ComparisonHighlights from "../components/comparision_highlights";
 import Footer from "../components/footer";
 import Navbar from "@/components/nav_bar";
+import ExchangeTicker from "@/components/ExchangeTicker";
 import Link from "next/link";
 export default function Home() {
   return (
@@ -70,6 +71,7 @@ export default function Home() {
       <PlatformServices />
       <AvailableBanks />
       <ExchangeRates />
+      <ExchangeTicker />
       <ComparisonHighlights />
 
       <Footer />

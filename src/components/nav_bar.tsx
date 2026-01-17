@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Landmark, ChevronRight } from "lucide-react";
+import { Menu, X, Landmark, Search, Command } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle"; 
 import Link from "next/link";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   // Handle scroll effect
   useEffect(() => {
@@ -19,10 +20,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Services", href: "#" },
-    { name: "Banks", href: "#" },
-    { name: "Compare Rates", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Banks", href: "/banks" },
+    { name: "Compare Rates", href: "/compare" },
   ];
 
   return (
@@ -45,8 +46,9 @@ export default function Navbar() {
           </span>
         </div>
 
-        {/* DESKTOP LINKS */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* CENTER SECTION: LINKS (Hidden on small, visible on lg) */}
+        {/* We moved links to center-left to make room for the search bar on the right */}
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -56,32 +58,80 @@ export default function Navbar() {
               }`}
             >
               {link.name}
-              {/* Animated Underline */}
               <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </div>
 
-        {/* ACTIONS (Toggle + Button) */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* RIGHT SECTION: SEARCH & ACTIONS */}
+        <div className="hidden md:flex items-center gap-3">
+          
+          {/* MODERN SEARCH BAR */}
+          <div className={`relative transition-all duration-300 ${isSearchFocused ? "w-[280px]" : "w-[200px] xl:w-[240px]"}`}>
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
+              <Search size={16} className={isScrolled ? "text-muted-foreground" : "text-gray-300"} />
+            </div>
+            
+            <input 
+              type="text"
+              placeholder="Search banks, rates..." 
+              onFocus={() => setIsSearchFocused(true)}
+              onBlur={() => setIsSearchFocused(false)}
+              className={`h-9 w-full rounded-full border px-9 text-sm outline-none transition-all placeholder:text-muted-foreground/70
+                ${isScrolled 
+                  ? "bg-muted/50 border-border text-foreground focus:bg-background focus:ring-2 focus:ring-primary/20" 
+                  : "bg-white/10 border-white/20 text-white placeholder:text-gray-300 focus:bg-white/20 focus:border-white/50"
+                }
+              `}
+            />
+
+            {/* Keyboard Shortcut Hint (CTRL+K) */}
+            <div className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none flex items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] font-medium
+               ${isScrolled 
+                 ? "bg-background border-border text-muted-foreground" 
+                 : "bg-black/20 border-white/10 text-gray-300"
+               }
+            `}>
+              <Command size={10} />
+              <span>K</span>
+            </div>
+          </div>
+
           <ModeToggle />
-          <button className="hidden lg:flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
-            Get App <ChevronRight size={16} />
-          </button>
         </div>
 
         {/* MOBILE MENU TOGGLE */}
-        <button
-          className="md:hidden p-2 text-primary"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} className={isScrolled ? "text-foreground" : "text-white"} />}
-        </button>
+        <div className="flex items-center gap-4 md:hidden">
+          {/* Mobile Search Icon (Since bar is hidden) */}
+          <button className={isScrolled ? "text-foreground" : "text-white"}>
+            <Search size={24} />
+          </button>
+          
+          <button
+            className="p-1"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X size={28} className={isScrolled ? "text-foreground" : "text-white"} />
+            ) : (
+              <Menu size={28} className={isScrolled ? "text-foreground" : "text-white"} />
+            )}
+          </button>
+        </div>
       </div>
 
-      {/* MOBILE MENU (Slide Down) */}
+      {/* MOBILE MENU */}
       {isMobileMenuOpen && (
         <div className="absolute top-16 left-0 w-full bg-background border-b border-border p-6 shadow-xl md:hidden flex flex-col gap-4 animate-in slide-in-from-top-5">
+           {/* Mobile Search Input */}
+           <div className="relative w-full">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <input 
+              className="h-10 w-full rounded-md border border-input bg-muted px-9 text-sm focus:ring-2 focus:ring-primary outline-none" 
+              placeholder="Search..." 
+            />
+          </div>
+
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -96,9 +146,6 @@ export default function Navbar() {
             <span className="text-sm text-muted-foreground">Theme</span>
             <ModeToggle />
           </div>
-          <button className="w-full mt-2 rounded-lg bg-primary py-3 text-center font-bold text-primary-foreground">
-            Get App
-          </button>
         </div>
       )}
     </nav>
