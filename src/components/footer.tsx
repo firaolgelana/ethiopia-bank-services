@@ -4,46 +4,17 @@ import {
   Linkedin, 
   Youtube, 
   Twitter, 
-  ArrowRight,
   ShieldCheck 
 } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#110c1d] text-white pt-20 pb-10">
+    <footer className="bg-[#110c1d] text-white pt-16 pb-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
-        <div className="flex flex-col lg:flex-row gap-16 mb-20">
-          
-          {/* LEFT SIDE: Newsletter */}
-          <div className="lg:w-1/3">
-            <h3 className="text-lg font-semibold mb-6">Subscribe to financial updates*</h3>
-            
-            {/* Input Field */}
-            <div className="relative mb-6">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="w-full rounded-md bg-white px-4 py-3 text-gray-900 outline-none focus:ring-2 focus:ring-primary"
-              />
-            </div>
-
-            {/* Disclaimer */}
-            <p className="text-xs text-gray-400 mb-6 leading-relaxed">
-              * By submitting this form, you agree to receive daily exchange rates and 
-              banking news updates. You can unsubscribe at any time. 
-              Read our <a href="#" className="underline text-white">Privacy Notice</a>.
-            </p>
-
-            {/* Subscribe Button */}
-            <button className="group flex items-center text-sm font-bold tracking-wider hover:text-gray-300 transition-colors">
-              SUBSCRIBE 
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
-          </div>
-
-          {/* RIGHT SIDE: Links Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:w-2/3">
+        {/* CENTERED LINKS GRID */}
+        <div className="flex justify-center mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-10 w-full max-w-5xl">
             
             {/* Column 1 */}
             <div>
@@ -93,7 +64,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* BOTTOM BAR */}
+        {/* BOTTOM BAR (UNAFFECTED) */}
         <div className="flex flex-col-reverse md:flex-row items-center justify-between border-t border-white/10 pt-8 gap-6">
           
           {/* Copyright */}
@@ -110,7 +81,7 @@ export default function Footer() {
             <a href="#" className="text-gray-400 hover:text-white transition-colors"><Youtube size={20} /></a>
           </div>
 
-          {/* Trust Badge (Similar to the Glassdoor one in your image) */}
+          {/* Trust Badge */}
           <div className="flex flex-col items-end">
             <div className="flex items-center gap-2">
               <h2 className="text-xl font-bold tracking-tighter">DATA<span className="font-light">SECURE</span></h2>

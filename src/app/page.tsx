@@ -1,9 +1,9 @@
 import Image from "next/image";
 import AvailableBanks from "../components/available_banks";
-import Services from "../components/services";
 import PlatformServices from "../components/platform_services";
 import ExchangeRates from "../components/exchange_rates";
-import ComparisonHighlights from "../components/comparision_highlights";  
+import ComparisonHighlights from "../components/comparision_highlights";
+import { ModeToggle } from "@/components/mode-toggle";
 import Footer from "../components/footer";
 
 export default function Home() {
@@ -12,11 +12,12 @@ export default function Home() {
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between bg-black/40 px-8 text-white backdrop-blur-md border-b border-white/10">
         <div className="font-bold text-xl tracking-wider">ETHIO-BANK</div>
-        <div className="hidden md:flex gap-6 text-sm font-medium">
+        <div className="hidden md:flex gap-6 text-sm font-medium items-center">
           <a href="#" className="hover:text-primary transition-colors">Home</a>
           <a href="#" className="hover:text-primary transition-colors">Services</a>
           <a href="#" className="hover:text-primary transition-colors">Banks</a>
           <a href="#" className="hover:text-primary transition-colors">Contact</a>
+          <ModeToggle />
         </div>
       </nav>
 
@@ -43,7 +44,7 @@ export default function Home() {
           <p className="mt-4 text-lg sm:text-xl text-gray-200 font-semibold">
             Ethiopia Banks Services
           </p>
-          
+
           {/* Button using your global primary colors */}
           <button className="mt-6 rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
             Get Started
@@ -62,14 +63,12 @@ export default function Home() {
           This section scrolls normally and adapts to your theme colors.
         </p>
       </section> */}
-      <PlatformServices/>
-      <Services/>
+      <PlatformServices />
+      <AvailableBanks />
+      <ExchangeRates />
+      <ComparisonHighlights />
 
-      <AvailableBanks/>
-      <ExchangeRates/>
-      <ComparisonHighlights/>
-
-      <Footer/>
+      <Footer />
     </>
   );
 }

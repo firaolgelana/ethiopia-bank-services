@@ -25,6 +25,12 @@ const BANKS = [
   { name: "Siinqee Bank", id: "siinqee", color: "#8DC63F" },
   { name: "Tsedey Bank", id: "tsedey", color: "#006838" },
   { name: "Gadaa Bank", id: "gadaa", color: "#000000" },
+  { name: "Zamzam Bank", id: "zamzam", color: "#000000" },
+  { name: "Berhan International Bank", id: "berhan", color: "#000000" },
+  { name: "Development Bank of Ethiopia", id: "development", color: "#000000" },
+  { name: "Hijra Bank", id: "hijra", color: "#000000" },
+  { name: "Shabelle Bank", id: "shabelle", color: "#000000" },
+  { name: "Rammis Bank", id: "rammis", color: "#000000" },
 ];
 
 export default function AvailableBanks() {
