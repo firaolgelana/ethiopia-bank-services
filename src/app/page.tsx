@@ -3,23 +3,13 @@ import AvailableBanks from "../components/available_banks";
 import PlatformServices from "../components/platform_services";
 import ExchangeRates from "../components/exchange_rates";
 import ComparisonHighlights from "../components/comparision_highlights";
-import { ModeToggle } from "@/components/mode-toggle";
 import Footer from "../components/footer";
-
+import Navbar from "@/components/nav_bar";
 export default function Home() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between bg-black/40 px-8 text-white backdrop-blur-md border-b border-white/10">
-        <div className="font-bold text-xl tracking-wider">ETHIO-BANK</div>
-        <div className="hidden md:flex gap-6 text-sm font-medium items-center">
-          <a href="#" className="hover:text-primary transition-colors">Home</a>
-          <a href="#" className="hover:text-primary transition-colors">Services</a>
-          <a href="#" className="hover:text-primary transition-colors">Banks</a>
-          <a href="#" className="hover:text-primary transition-colors">Contact</a>
-          <ModeToggle />
-        </div>
-      </nav>
+      <Navbar />
 
       {/* HERO SECTION */}
       <section className="relative h-screen w-full">
@@ -29,8 +19,10 @@ export default function Home() {
           alt="Background"
           fill
           priority
-          className="object-cover -z-10"
+          className="object-cover -z-20"
         />
+        {/* Overlay: 40% opacity in light mode, 80% in dark mode */}
+        <div className="absolute inset-0 bg-black/40 dark:bg-black/80 -z-10" />
 
         {/* Hero Content */}
         {/* 
@@ -38,17 +30,29 @@ export default function Home() {
            - text-white: Hardcoded white here because it's always over an image
         */}
         <div className="flex h-full flex-col items-center justify-center pt-16 text-center text-white px-4">
-          <h1 className="text-5xl font-bold tracking-tight sm:text-6xl">
-            Welcome
+          {/* Badge/Tag - Adds a modern tech feel */}
+          <div className="mb-4 rounded-full bg-white/10 border border-white/20 px-3 py-1 text-sm font-medium backdrop-blur-sm">
+            🚀 Live Forex & Interest Rates Updated Daily
+          </div>
+
+          <h1 className="max-w-4xl text-5xl font-extrabold tracking-tight sm:text-6xl drop-shadow-md">
+            All Ethiopian Banks. <br />
+            <span className="text-primary-foreground bg-primary/20 px-2 rounded-lg">One Platform.</span>
           </h1>
-          <p className="mt-4 text-lg sm:text-xl text-gray-200 font-semibold">
-            Ethiopia Banks Services
+          
+          <p className="mt-6 max-w-2xl text-lg sm:text-xl text-gray-100 leading-relaxed shadow-sm">
+            Stop visiting 30 different websites. Compare loans, exchange rates, and digital services from CBE, Awash, Dashen, and more in real-time.
           </p>
 
-          {/* Button using your global primary colors */}
-          <button className="mt-6 rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-            Get Started
-          </button>
+          {/* Button Group */}
+          <div className="mt-8 flex gap-4">
+            <button className="rounded-md bg-primary px-8 py-3.5 font-bold text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all shadow-lg">
+              Compare Rates
+            </button>
+            <button className="rounded-md bg-white/10 backdrop-blur-md border border-white/30 px-8 py-3.5 font-bold text-white hover:bg-white/20 transition-all">
+              Find a Branch
+            </button>
+          </div>
         </div>
       </section>
 

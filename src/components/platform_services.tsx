@@ -75,7 +75,7 @@ export default function PlatformServices() {
           {PLATFORM_FEATURES.map((feature, index) => (
             <div
               key={index}
-              className="flex flex-col items-start rounded-2xl bg-background p-6 shadow-sm ring-1 ring-border transition-all hover:ring-2 hover:ring-primary hover:shadow-md"
+              className="flex flex-col items-start rounded-2xl bg-card-background p-6 shadow-sm ring-1 ring-border transition-all hover:ring-2 hover:ring-primary hover:shadow-md"
             >
               {/* Icon Box */}
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-md">

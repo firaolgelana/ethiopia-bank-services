@@ -54,7 +54,7 @@ export default function AvailableBanks() {
             {BANKS.map((bank) => (
               <div
                 key={bank.id}
-                className="group relative flex flex-col items-center justify-center gap-4 rounded-xl border border-border bg-card p-6 text-card-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/50 cursor-pointer"
+                className="group relative flex flex-col items-center justify-center gap-4 rounded-xl border border-border bg-card-background p-6 text-card-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/50 cursor-pointer"
               >
                 {/* Logo Container */}
                 <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-muted p-2 shadow-inner">
