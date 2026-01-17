@@ -5,6 +5,7 @@ import ExchangeRates from "../components/exchange_rates";
 import ComparisonHighlights from "../components/comparision_highlights";
 import Footer from "../components/footer";
 import Navbar from "@/components/nav_bar";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -31,9 +32,6 @@ export default function Home() {
         */}
         <div className="flex h-full flex-col items-center justify-center pt-16 text-center text-white px-4">
           {/* Badge/Tag - Adds a modern tech feel */}
-          <div className="mb-4 rounded-full bg-white/10 border border-white/20 px-3 py-1 text-sm font-medium backdrop-blur-sm">
-            🚀 Live Forex & Interest Rates Updated Daily
-          </div>
 
           <h1 className="max-w-4xl text-5xl font-extrabold tracking-tight sm:text-6xl drop-shadow-md">
             All Ethiopian Banks. <br />
@@ -46,9 +44,11 @@ export default function Home() {
 
           {/* Button Group */}
           <div className="mt-8 flex gap-4">
+          <Link href={"/compare"}>
             <button className="rounded-md bg-primary px-8 py-3.5 font-bold text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all shadow-lg">
               Compare Rates
             </button>
+            </Link>
             <button className="rounded-md bg-white/10 backdrop-blur-md border border-white/30 px-8 py-3.5 font-bold text-white hover:bg-white/20 transition-all">
               Find a Branch
             </button>

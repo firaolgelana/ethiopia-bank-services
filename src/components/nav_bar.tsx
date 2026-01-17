@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Landmark, ChevronRight } from "lucide-react";
-import { ModeToggle } from "@/components/mode-toggle"; // Adjust path if needed
+import { ModeToggle } from "@/components/mode-toggle"; 
 import Link from "next/link";
 
 export default function Navbar() {
