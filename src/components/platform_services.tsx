@@ -8,7 +8,6 @@ import {
   Search, 
   HelpCircle 
 } from "lucide-react";
-
 const PLATFORM_FEATURES = [
   {
     title: "Compare Interest Rates",

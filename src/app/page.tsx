@@ -50,9 +50,11 @@ export default function Home() {
               Compare Rates
             </button>
             </Link>
+            <Link href={"/calculator"}>
             <button className="rounded-md bg-white/10 backdrop-blur-md border border-white/30 px-8 py-3.5 font-bold text-white hover:bg-white/20 transition-all">
               Find a Branch
             </button>
+            </Link>
           </div>
         </div>
       </section>
