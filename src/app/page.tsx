@@ -1,5 +1,10 @@
 import Image from "next/image";
 import AvailableBanks from "../components/available_banks";
+import Services from "../components/services";
+import PlatformServices from "../components/platform_services";
+import ExchangeRates from "../components/exchange_rates";
+import ComparisonHighlights from "../components/comparision_highlights";  
+import Footer from "../components/footer";
 
 export default function Home() {
   return (
@@ -35,8 +40,8 @@ export default function Home() {
           <h1 className="text-5xl font-bold tracking-tight sm:text-6xl">
             Welcome
           </h1>
-          <p className="mt-4 text-lg sm:text-xl text-gray-200">
-            Build modern apps with Next.js
+          <p className="mt-4 text-lg sm:text-xl text-gray-200 font-semibold">
+            Ethiopia Banks Services
           </p>
           
           {/* Button using your global primary colors */}
@@ -57,19 +62,14 @@ export default function Home() {
           This section scrolls normally and adapts to your theme colors.
         </p>
       </section> */}
-      <AvailableBanks/>
+      <PlatformServices/>
+      <Services/>
 
-      {/* ANOTHER SECTION (More Content) */}
-      {/* 
-         - bg-muted: Uses your theme's secondary/muted background color 
-           (usually light gray in light mode, dark gray in dark mode)
-      */}
-      <section className="flex min-h-screen flex-col justify-center bg-muted px-8 py-16 text-foreground">
-        <h2 className="text-3xl font-bold mb-4">More Content</h2>
-        <p className="text-muted-foreground text-lg">
-          Add anything here. This utilizes the 'muted' variable for contrast.
-        </p>
-      </section>
+      <AvailableBanks/>
+      <ExchangeRates/>
+      <ComparisonHighlights/>
+
+      <Footer/>
     </>
   );
 }
