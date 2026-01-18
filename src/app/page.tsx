@@ -45,12 +45,12 @@ export default function Home() {
 
           {/* Button Group */}
           <div className="mt-8 flex gap-4">
-          <Link href={"/compare"}>
+          <Link href={"/services/compare"}>
             <button className="rounded-md bg-primary px-8 py-3.5 font-bold text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all shadow-lg">
               Compare Rates
             </button>
             </Link>
-            <Link href={"/calculator"}>
+            <Link href={"/services/calculator"}>
             <button className="rounded-md bg-white/10 backdrop-blur-md border border-white/30 px-8 py-3.5 font-bold text-white hover:bg-white/20 transition-all">
               Find a Branch
             </button>
