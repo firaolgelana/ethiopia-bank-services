@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 // 1. Define the list of Ethiopian Banks
 const BANKS = [
@@ -33,51 +34,44 @@ const BANKS = [
   { name: "Rammis Bank", id: "rammis", color: "#000000" },
 ];
 
+
 export default function AvailableBanks() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    // Removed the outer <main> tag
+    <section className="py-20 px-6 sm:px-12 bg-muted/30">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Available Banks
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Select a bank to view services and rates.
+          </p>
+        </div>
 
-      {/* BANKS GRID SECTION */}
-      <section className="py-20 px-6 sm:px-12 bg-muted/30">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Available Banks
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Select a bank to view services and rates.
-            </p>
-          </div>
-
-          {/* GRID LAYOUT: 2 cols mobile, 3 tablet, 4 desktop */}
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {BANKS.map((bank) => (
+        {/* GRID LAYOUT */}
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+          {BANKS.map((bank) => (
+            // FIX 1: KEY PROP GOES HERE
+            <Link key={bank.id} href={`/banks/${bank.id}`} className="block h-full">
               <div
-                key={bank.id}
-                className="group relative flex flex-col items-center justify-center gap-4 rounded-xl border border-border bg-card-background p-6 text-card-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/50 cursor-pointer"
+                className="group h-full relative flex flex-col items-center justify-center gap-4 rounded-xl border border-border bg-card-background p-6 text-card-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/50 cursor-pointer"
               >
                 {/* Logo Container */}
-                <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-muted p-2 shadow-inner">
-                  {/* 
-                     We try to load the image. If you don't have images yet, 
-                     CSS logic can handle fallbacks, but here is a React way:
-                  */}
-                  <div className="absolute inset-0 flex items-center justify-center text-xl font-bold text-muted-foreground opacity-20">
-                    {/* Placeholder Initials if image fails to load */}
-                    {bank.name.substring(0, 2).toUpperCase()}
-                  </div>
+                <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-muted p-2 shadow-inner overflow-hidden">
                   
-                  {/* 
-                      IMPORTANT: Put your logo images in /public/banks/ 
-                      named like: cbe.png, awash.png, etc.
-                  */}
+                  {/* Fallback Text (Visible if image fails, depending on CSS) */}
+                  <span className="absolute text-xl font-bold text-muted-foreground/20">
+                    {bank.name.substring(0, 2).toUpperCase()}
+                  </span>
+                  
                   <Image
                     src={`/banks/${bank.id}.png`}
                     alt={`${bank.name} logo`}
                     width={60}
                     height={60}
                     className="object-contain z-10 transition-transform duration-300 group-hover:scale-110"
-                    // This onError fallback prevents broken image icons (optional logic could go here)
+                    // Optional: Add a placeholder or error handler in real production
                   />
                 </div>
 
@@ -86,10 +80,10 @@ export default function AvailableBanks() {
                   {bank.name}
                 </h3>
               </div>
-            ))}
-          </div>
+            </Link>
+          ))}
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

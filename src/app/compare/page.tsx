@@ -11,6 +11,7 @@ import {
   Filter
 } from "lucide-react";
 import Image from "next/image";
+import Navbar from "@/components/nav_bar";
 
 // 1. MOCK DATA: Realistic Ethiopian Bank Rates (Annual %)
 // In a real app, this would come from your Database/API
@@ -70,7 +71,7 @@ export default function CompareRates() {
   return (
     <main className="min-h-screen bg-muted/30 pt-24 pb-20 px-4 md:px-8">
       <div className="mx-auto max-w-6xl">
-        
+        <Navbar></Navbar>
         {/* HEADER */}
         <div className="mb-8 text-center md:text-left">
           <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl flex items-center justify-center md:justify-start gap-3">
