@@ -16,16 +16,102 @@ import Navbar from "@/components/nav_bar";
 // 1. MOCK DATA: Realistic Ethiopian Bank Rates (Annual %)
 // In a real app, this would come from your Database/API
 const BANK_RATES = [
-  { id: "cbe", name: "Commercial Bank of Ethiopia", savingsRate: 10.0, fixedRate: 8.5, color: "#6F2C91", minFixed: 10000 },
-  { id: "awash", name: "Awash Bank", savingsRate: 8.0, fixedRate: 10.5, color: "#F7941D", minFixed: 50000 },
-  { id: "dashen", name: "Dashen Bank", savingsRate: 7.5, fixedRate: 10.0, color: "#00539C", minFixed: 25000 },
-  { id: "abyssinia", name: "Bank of Abyssinia", savingsRate: 8.0, fixedRate: 11.0, color: "#FDC300", minFixed: 50000 },
-  { id: "hibret", name: "Hibret Bank", savingsRate: 7.5, fixedRate: 10.2, color: "#000000", minFixed: 25000 },
-  { id: "amhara", name: "Amhara Bank", savingsRate: 9.5, fixedRate: 13.5, color: "#00A651", minFixed: 10000 }, // Newer banks often have higher rates
-  { id: "coop", name: "Coop Bank of Oromia", savingsRate: 8.0, fixedRate: 10.0, color: "#00A550", minFixed: 10000 },
-  { id: "zemen", name: "Zemen Bank", savingsRate: 7.0, fixedRate: 11.5, color: "#CD2027", minFixed: 100000 },
-  { id: "goh", name: "Goh Betoch Bank", savingsRate: 9.0, fixedRate: 12.5, color: "#F37021", minFixed: 10000 },
-  { id: "global", name: "Global Bank", savingsRate: 8.5, fixedRate: 12.0, color: "#00AEEF", minFixed: 20000 },
+  {
+    id: "cbe",
+    name: "Commercial Bank of Ethiopia",
+    savingsRate: 7.0,         // official minimum published on CBE savings page (ordinary) :contentReference[oaicite:1]{index=1}
+    fixedRate: 8.5,           // approximate, negotiable
+    color: "#6F2C91",
+    minFixed: 10000
+  },
+  {
+    id: "awash",
+    name: "Awash Bank",
+    savingsRate: 7.8,         // estimate near Ethiopia’s recent average deposit rate (~7.8%) :contentReference[oaicite:2]{index=2}
+    fixedRate: 9.8,           // approximate
+    color: "#F7941D",
+    minFixed: 50000
+  },
+  {
+    id: "dashen",
+    name: "Dashen Bank",
+    savingsRate: 7.5,         // typical private bank savings in Ethiopia (~7–8%) :contentReference[oaicite:3]{index=3}
+    fixedRate: 9.8,
+    color: "#00539C",
+    minFixed: 25000
+  },
+  {
+    id: "abyssinia",
+    name: "Bank of Abyssinia",
+    savingsRate: 8.0,         // estimated slightly above average :contentReference[oaicite:4]{index=4}
+    fixedRate: 10.0,
+    color: "#FDC300",
+    minFixed: 50000
+  },
+  {
+    id: "hibret",
+    name: "Hibret Bank",
+    savingsRate: 7.5,         // estimate similar to mid-range private banks :contentReference[oaicite:5]{index=5}
+    fixedRate: 9.8,
+    color: "#000000",
+    minFixed: 25000
+  },
+  {
+    id: "amhara",
+    name: "Amhara Bank",
+    savingsRate: 7.0,         // official source previously showed 7% basic rate :contentReference[oaicite:6]{index=6}
+    fixedRate: 10.5,
+    color: "#00A651",
+    minFixed: 10000
+  },
+  {
+    id: "coop",
+    name: "Cooperative Bank of Oromia",
+    savingsRate: 7.8,         // estimate near national average :contentReference[oaicite:7]{index=7}
+    fixedRate: 9.8,
+    color: "#00A550",
+    minFixed: 10000
+  },
+  {
+    id: "zemen",
+    name: "Zemen Bank",
+    savingsRate: 7.2,         // rough approximate (no published figure but usually competitive) :contentReference[oaicite:8]{index=8}
+    fixedRate: 10.5,
+    color: "#CD2027",
+    minFixed: 100000
+  },
+  {
+    id: "tsehay",
+    name: "Tsehay Bank",
+    savingsRate: 7.0,         // some tariff docs reference minimum ~7% for ordinary savings :contentReference[oaicite:9]{index=9}
+    fixedRate: 10.0,
+    color: "#FFA500",
+    minFixed: 10000
+  },
+  {
+    id: "global",
+    name: "Global Bank Ethiopia",
+    savingsRate: 8.0,         // estimate slightly above average :contentReference[oaicite:10]{index=10}
+    fixedRate: 10.8,
+    color: "#00AEEF",
+    minFixed: 20000
+  },
+  {
+    id: "wegagen",
+    name: "Wegagen Bank",
+    savingsRate: 7.0,         // estimate below average based on recent sector performance :contentReference[oaicite:11]{index=11}
+    fixedRate: 9.5,
+    color: "#002E5D",
+    minFixed: 25000
+  },
+  {
+    id: "goh",
+    name: "Goh Betoch Bank",
+    savingsRate: 7.5,         // smaller/niche bank estimate :contentReference[oaicite:12]{index=12}
+    fixedRate: 10.5,
+    color: "#F37021",
+    minFixed: 10000
+  }
 ];
 
 export default function CompareRates() {

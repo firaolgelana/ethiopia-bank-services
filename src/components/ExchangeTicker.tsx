@@ -1,135 +1,150 @@
-import { ArrowUp, ArrowDown, Banknote } from "lucide-react";
+import { Banknote } from "lucide-react";
 
-// 1. Define the Shape of the API Response
-interface ExchangeData {
-    usdCurrentBlackPrice: number;
-    dailyPercentage: number;
-    allLastprice: Record<string, number>; // Dynamic object: "USD": 189.0, "EUR": 219.0
+// 1. Define Types
+interface CbeCurrency {
+  CurrencyCode: string;
+  CurrencyName: string;
 }
 
-// 2. Select which currencies you want to display
+interface CbeRate {
+  currency: CbeCurrency;
+  cashBuying: number;
+  cashSelling: number;
+  transactionalBuying: number;
+  transactionalSelling: number;
+}
+
+interface CbeApiResponse {
+  Date: string;
+  ExchangeRate: CbeRate[];
+}
+
 const TARGET_CURRENCIES = [
-    { code: "USD", name: "US Dollar", flag: "🇺🇸" },
-    { code: "EUR", name: "Euro", flag: "🇪🇺" },
-    { code: "GBP", name: "Pound Sterling", flag: "🇬🇧" },
-    { code: "AED", name: "UAE Dirham", flag: "🇦🇪" },
-    { code: "SAR", name: "Saudi Riyal", flag: "🇸🇦" },
-    { code: "CAD", name: "Canadian Dollar", flag: "🇨🇦" },
-    { code: "CNY", name: "Chinese Yuan", flag: "🇨🇳" },
+  { code: "USD", flag: "🇺🇸" },
+  { code: "EUR", flag: "🇪🇺" },
+  { code: "GBP", flag: "🇬🇧" },
+  { code: "AED", flag: "🇦🇪" },
+  { code: "SAR", flag: "🇸🇦" },
+  { code: "CAD", flag: "🇨🇦" },
+  { code: "CNY", flag: "🇨🇳" },
 ];
 
-// Fallback Mock Data in case API fails
-const MOCK_DATA: ExchangeData = {
-    usdCurrentBlackPrice: 124.50,
-    dailyPercentage: 0.85,
-    allLastprice: {
-        USD: 124.50,
-        EUR: 135.20,
-        GBP: 158.40,
-        AED: 33.90,
-        SAR: 33.15,
-        CAD: 92.30,
-        CNY: 17.10
-    }
-};
+function getEthiopianDate(offsetDays = 0): string {
+  const date = new Date();
+  date.setDate(date.getDate() - offsetDays);
+  return date.toLocaleDateString("en-CA", {
+    timeZone: "Africa/Addis_Ababa",
+  });
+}
 
-async function getExchangeRates(): Promise<ExchangeData | null> {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 100000); // 3-second timeout
+async function fetchFromCbe(date: string, retries = 2): Promise<CbeRate[] | null> {
+  const endpoint = `https://combanketh.et/cbeapi/daily-exchange-rates/?_limit=1&Date=${date}`;
 
+  for (let i = 0; i <= retries; i++) {
     try {
-        const res = await fetch("https://ethioblackmarket.com/api/latest-prices?period=daily", {
-            signal: controller.signal,
-            next: { revalidate: 300 }, // Cache for 5 minutes
-            headers: {
-                // 🚨 IMPORTANT: Many APIs block requests without this header
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            }
-        });
+      const res = await fetch(endpoint, {
+        next: { revalidate: 3600 },
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+          "Accept": "application/json, text/plain, */*",
+          "Accept-Language": "en-US,en;q=0.9",
+          "Cache-Control": "no-cache",
+          "Connection": "keep-alive"
+        },
+      });
 
-        clearTimeout(timeoutId);
+      if (!res.ok) {
+        if (res.status === 404 || res.status === 500) return null; // Likely no data or server error
+        throw new Error(`Status ${res.status}`);
+      }
 
-        if (!res.ok) {
-            console.warn(`Exchange API Status: ${res.status}. Using fallback data.`);
-            return MOCK_DATA;
-        }
+      const rawData: CbeApiResponse[] = await res.json();
+      if (!rawData || rawData.length === 0 || !rawData[0].ExchangeRate) {
+        return null;
+      }
 
-        return await res.json();
+      return rawData[0].ExchangeRate;
+
     } catch (error) {
-        console.warn("Exchange API failed or timed out. Using fallback data.", error);
-        return MOCK_DATA;
+      if (i === retries) {
+        console.error(`CBE API Error for date ${date}:`, error instanceof Error ? error.message : error);
+        return null;
+      }
+      // Wait a bit before retrying
+      await new Promise(r => setTimeout(r, 500 * (i + 1)));
     }
+  }
+  return null;
+}
+
+async function getExchangeRates(): Promise<CbeRate[] | null> {
+  // Try today, then yesterday, then the day before
+  // CBE sometimes doesn't update on weekends/holidays
+  for (let offset = 0; offset <= 3; offset++) {
+    const date = getEthiopianDate(offset);
+    const rates = await fetchFromCbe(date);
+    if (rates && rates.length > 0) {
+      if (offset > 0) {
+        console.log(`Using CBE rates from ${date} (fallback)`);
+      }
+      return rates;
+    }
+  }
+
+  return null;
 }
 
 export default async function ExchangeTicker() {
-    const data = await getExchangeRates();
+  const rates = await getExchangeRates();
 
-    if (!data || !data.allLastprice) {
-        return null; // Don't render anything if API fails
-    }
+  if (!rates) return null;
 
-    return (
-        <div className="w-full border-y border-border bg-card/50 backdrop-blur-sm overflow-hidden py-3 relative z-40">
+  const ratesMap = new Map(rates.map((item) => [item.currency.CurrencyCode, item]));
 
-            {/* Label Badge (Absolute positioned on left) */}
-            <div className="absolute left-0 top-0 bottom-0 z-10 flex items-center bg-primary px-4 shadow-lg shadow-primary/20">
-                <Banknote className="mr-2 h-4 w-4 text-primary-foreground" />
-                <span className="text-xs font-bold text-primary-foreground uppercase tracking-wider">
-                    Black Market
-                </span>
-            </div>
+  return (
+    <div className="w-full border-y border-border bg-card/50 backdrop-blur-sm overflow-hidden py-3 relative z-40 px-6 sm:px-12">
+      <div className="absolute left-6 sm:left-12 top-0 bottom-0 z-10 flex items-center bg-[#5d2b90] px-4 shadow-lg shadow-purple-900/20">
+        <Banknote className="mr-2 h-4 w-4 text-white" />
+        <span className="text-xs font-bold text-white uppercase tracking-wider">
+          Daily Exchange Rate <br />
+          CBE Official
+        </span>
+      </div>
 
-            {/* 
-         The Marquee Container 
-         We create two sets of the same data to make the loop seamless 
-      */}
-            <div className="flex w-full overflow-hidden mask-fade-sides pl-32">
-                <div className="flex min-w-full animate-marquee items-center gap-8 pr-8">
-                    {/* Render List Once */}
-                    <CurrencyList data={data} />
-                    {/* Render List Again (for seamless looping) */}
-                    <CurrencyList data={data} />
-                </div>
-            </div>
+      <div className="flex w-full overflow-hidden mask-fade-sides pl-40">
+        <div className="flex min-w-full animate-marquee items-center gap-8 pr-8">
+          <CurrencyList ratesMap={ratesMap} />
+          <CurrencyList ratesMap={ratesMap} />
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
-// Helper Sub-component to render the items
-function CurrencyList({ data }: { data: ExchangeData }) {
-    return (
-        <>
-            {TARGET_CURRENCIES.map((curr) => {
-                const price = data.allLastprice[curr.code];
+function CurrencyList({ ratesMap }: { ratesMap: Map<string, CbeRate> }) {
+  return (
+    <>
+      {TARGET_CURRENCIES.map((curr) => {
+        const rateData = ratesMap.get(curr.code);
+        if (!rateData) return null;
 
-                // If USD, we can show the specific daily percentage from the API root
-                const isUSD = curr.code === "USD";
-                const trend = isUSD ? data.dailyPercentage : 0;
-
-                return (
-                    <div key={curr.code} className="flex items-center gap-2 shrink-0">
-                        <span className="text-lg">{curr.flag}</span>
-                        <div className="flex flex-col">
-                            <span className="text-[10px] font-bold text-muted-foreground leading-none">
-                                {curr.code}
-                            </span>
-                            <div className="flex items-center gap-1.5">
-                                <span className="text-sm font-bold font-mono text-foreground">
-                                    {price.toFixed(2)}
-                                </span>
-
-                                {/* Show trend indicator only for USD (since API gives specific data) */}
-                                {isUSD && (
-                                    <span className={`flex items-center text-[10px] font-medium ${trend >= 0 ? "text-green-500" : "text-red-500"}`}>
-                                        {trend >= 0 ? <ArrowUp size={10} /> : <ArrowDown size={10} />}
-                                        {Math.abs(trend).toFixed(2)}%
-                                    </span>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                );
-            })}
-        </>
-    );
+        return (
+          <div key={curr.code} className="flex items-center gap-2 shrink-0">
+            <span className="text-xl">{curr.flag}</span>
+            <div className="flex flex-col">
+              <span className="text-[10px] font-bold text-muted-foreground leading-none">
+                {curr.code}
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold font-mono text-foreground">
+                  {rateData.cashBuying.toFixed(2)}
+                </span>
+                <span className="text-[9px] text-muted-foreground uppercase">Birr</span>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
 }

@@ -202,7 +202,7 @@ export default function CbePage() {
       </section>
 
       {/* --- SEARCH & FILTER SECTION --- */}
-      <section className="py-10 px-6 sticky top-16 z-30 bg-gray-50/95 dark:bg-black/95 backdrop-blur-sm border-b border-gray-200 dark:border-zinc-800">
+      <section className="py-10 px-6 sticky top-0 z-30 bg-gray-50/95 dark:bg-black/95 backdrop-blur-sm border-b border-gray-200 dark:border-zinc-800">
         <div className="mx-auto max-w-7xl space-y-6">
           
           {/* Search Bar */}
@@ -253,7 +253,7 @@ export default function CbePage() {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-grow">
+                  <div className="grow">
                     <div className="flex justify-between items-start">
                       <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                       {service.category === "Interest-Free" && (

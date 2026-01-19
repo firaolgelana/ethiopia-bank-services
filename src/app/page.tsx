@@ -1,7 +1,6 @@
 import Image from "next/image";
 import AvailableBanks from "../components/available_banks";
 import PlatformServices from "../components/platform_services";
-import ExchangeRates from "../components/exchange_rates";
 import ComparisonHighlights from "../components/comparision_highlights";
 import Footer from "../components/footer";
 import Navbar from "@/components/nav_bar";
@@ -70,10 +69,16 @@ export default function Home() {
           This section scrolls normally and adapts to your theme colors.
         </p>
       </section> */}
+      <section id="services">
+
       <PlatformServices />
+      </section>
+      <section id="banks">
       <AvailableBanks />
-      <ExchangeRates />
+      </section>
+      <section id="exchange">
       <ExchangeTicker />
+      </section>
       <ComparisonHighlights />
 
       <Footer />

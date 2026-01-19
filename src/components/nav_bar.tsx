@@ -9,7 +9,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -21,9 +20,9 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "Banks", href: "/banks" },
-    { name: "Compare Rates", href: "/compare" },
+    { name: "Services", href: "#services" },
+    { name: "Banks", href: "#banks" },
+    { name: "Exchange Rates", href: "#exchange" },
   ];
 
   return (

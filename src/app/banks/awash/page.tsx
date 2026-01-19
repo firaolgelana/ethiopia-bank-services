@@ -187,7 +187,7 @@ export default function AwashPage() {
       </section>
 
       {/* --- SEARCH BAR --- */}
-      <section className="py-10 px-6 sticky top-16 z-30 bg-gray-50/95 dark:bg-black/95 backdrop-blur-sm border-b border-gray-200 dark:border-zinc-800">
+      <section className="py-10 px-6 sticky top-0 z-30 bg-gray-50/95 dark:bg-black/95 backdrop-blur-sm border-b border-gray-200 dark:border-zinc-800">
         <div className="mx-auto max-w-7xl space-y-6">
           <div className="relative max-w-lg mx-auto md:mx-0">
             <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
