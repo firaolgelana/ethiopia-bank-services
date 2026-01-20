@@ -66,7 +66,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           
           {/* MODERN SEARCH BAR */}
-          <div className={`relative transition-all duration-300 ${isSearchFocused ? "w-[280px]" : "w-[200px] xl:w-[240px]"}`}>
+          <div className={`relative transition-all duration-300 ${isSearchFocused ? "w-70" : "w-50 xl:w-60"}`}>
             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
               <Search size={16} className={isScrolled ? "text-muted-foreground" : "text-gray-300"} />
             </div>
