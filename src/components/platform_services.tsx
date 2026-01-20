@@ -46,13 +46,13 @@ const PLATFORM_FEATURES = [
     title: "Smart Search",
     description: "Filter banks by specific services (e.g., 'CBE Birr', 'Interest-Free', 'Western Union') to find exactly what you need.",
     icon: Search,
-    href: "/services/search",
+    href: "#home",
   },
   {
     title: "NBE Alerts",
     description: "Stay updated with the latest financial directives and policy changes from the National Bank of Ethiopia.",
     icon: BellRing,
-    href: "/services/news",
+    href: "/services/finder",
   },
   {
     title: "User Support",

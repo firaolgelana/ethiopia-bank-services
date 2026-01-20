@@ -142,7 +142,7 @@ export default function AwashPage() {
       
       {/* --- HERO SECTION (Awash Blue & Orange) --- */}
       <section className="relative w-full bg-linear-to-r from-[#003da5] to-[#0056b3] text-white py-20 px-6">
-        <div className="absolute inset-0 bg-[url('/patterns/circuit.png')] opacity-10" /> 
+        <div className="absolute inset-0 opacity-10" /> 
         <div className="relative mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-10">
           
           <div className="space-y-6 max-w-2xl">

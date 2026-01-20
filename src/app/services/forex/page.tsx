@@ -153,7 +153,7 @@ export default async function ForexPage() {
         {/* Highlights Grid (Big Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {highlights.map((rate) => (
-            <div key={rate.currency.CurrencyCode} className="bg-card border border-border rounded-xl p-6 shadow-sm relative overflow-hidden group">
+            <div key={rate.currency.CurrencyCode} className="bg-card-background border border-border rounded-xl p-6 shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
               
               <div className="flex justify-between items-start mb-6">
@@ -181,7 +181,7 @@ export default async function ForexPage() {
         </div>
 
         {/* Detailed Table Section */}
-        <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm">
+        <div className="bg-card-background border border-border rounded-2xl overflow-hidden shadow-sm">
           <div className="p-6 border-b border-border flex items-center justify-between">
             <h3 className="text-lg font-semibold flex items-center gap-2">
               <ArrowRightLeft size={18} /> Full Currency List
