@@ -249,7 +249,7 @@ export default function DashenPage() {
                 </div>
 
                 {/* Content */}
-                <div className="flex-grow">
+                <div className="grow">
                   <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
                       {service.title}
