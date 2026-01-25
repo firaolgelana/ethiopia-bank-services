@@ -17,6 +17,7 @@ import {
   Download,
   Wallet
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real CBE Services ---
 const CB_SERVICES = [
@@ -157,6 +158,7 @@ export default function CbePage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
+      <Navbar/>
       
       {/* --- HERO SECTION --- */}
       <section className="relative w-full bg-[#5d2b90] text-white py-20 px-6">
@@ -202,7 +204,7 @@ export default function CbePage() {
       </section>
 
       {/* --- SEARCH & FILTER SECTION --- */}
-      <section className="py-10 px-6 sticky top-0 z-30 bg-gray-50/95 dark:bg-black/95 backdrop-blur-sm border-b border-gray-200 dark:border-zinc-800">
+      <section className="py-10 px-6 sticky top-16 z-30 bg-gray-50/95 dark:bg-black/95 backdrop-blur-sm border-b border-gray-200 dark:border-zinc-800">
         <div className="mx-auto max-w-7xl space-y-6">
           
           {/* Search Bar */}

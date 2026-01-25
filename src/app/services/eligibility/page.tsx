@@ -14,6 +14,7 @@ import {
   MapPin,
   ChevronRight
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- DATA: Requirements for Ethiopian Banking Services ---
 const CRITERIA = [
@@ -96,6 +97,7 @@ export default function EligibilityPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black pt-24 px-6 pb-20">
+      <Navbar/>
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}

@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   Wheat
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Oromia Bank Services ---
 const OROMIA_SERVICES = [
@@ -119,7 +120,7 @@ export default function OromiaPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Forest Green & Red) --- */}
       <section className="relative w-full bg-linear-to-r from-[#006837] to-[#004d29] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Abstract Circles */}

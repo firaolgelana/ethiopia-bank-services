@@ -17,6 +17,7 @@ import {
   Home,
   CheckCircle
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Hijra Bank Services ---
 const HIJRA_SERVICES = [
@@ -110,7 +111,7 @@ export default function HijraPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Teal & Black) --- */}
       <section className="relative w-full bg-linear-to-br from-[#00a99d] to-[#00796b] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Islamic Geometry */}

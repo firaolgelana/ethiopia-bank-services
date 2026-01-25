@@ -15,6 +15,7 @@ import {
   Cog,     // Machinery/Lease
   FileText
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real DBE Services ---
 const DBE_SERVICES = [
@@ -98,7 +99,7 @@ export default function DbePage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Slate Blue & Gold) --- */}
       <section className="relative w-full bg-linear-to-r from-[#2c3e50] to-[#1a252f] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Blueprints/Grid */}

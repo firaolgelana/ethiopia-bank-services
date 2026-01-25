@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Filter, Check, Building2, ExternalLink } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- DATA: Banks with their specific features ---
 const BANKS_DATA = [
@@ -69,6 +70,7 @@ export default function BankFinderPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black pt-24 px-6 pb-20">
+      <Navbar/>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8">
         
         {/* LEFT SIDEBAR: FILTERS */}

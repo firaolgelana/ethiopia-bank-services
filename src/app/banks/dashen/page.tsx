@@ -18,6 +18,7 @@ import {
   ShoppingBag,
   Heart
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Dashen Bank Services ---
 const DASHEN_SERVICES = [
@@ -128,7 +129,7 @@ export default function DashenPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Dashen Navy & Gold) --- */}
       <section className="relative w-full bg-[#0f1e5a] text-white py-20 px-6 overflow-hidden">
         {/* Abstract Background Shapes */}

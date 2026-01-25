@@ -17,6 +17,7 @@ import {
   Users,
   Building // City/Urban
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Addis Bank Services ---
 const ADDIS_SERVICES = [
@@ -112,7 +113,7 @@ export default function AddisPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Addis Blue) --- */}
       <section className="relative w-full bg-linear-to-r from-[#0054a6] to-[#003d7a] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Cityscape/Urban lines */}

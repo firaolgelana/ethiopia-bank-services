@@ -18,6 +18,7 @@ import {
   LayoutGrid,
   Home
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Bunna Bank Services ---
 const BUNNA_SERVICES = [
@@ -113,7 +114,7 @@ export default function BunnaPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Coffee Brown & Orange) --- */}
       <section className="relative w-full bg-linear-to-br from-[#5e2c04] to-[#3d1a00] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Steam / Warmth */}

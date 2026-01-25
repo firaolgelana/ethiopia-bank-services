@@ -17,6 +17,7 @@ import {
   Tractor,
   Users
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Tsedey Bank Services ---
 const TSEDEY_SERVICES = [
@@ -114,7 +115,7 @@ export default function TsedeyPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Spring Green) --- */}
       <section className="relative w-full bg-linear-to-br from-[#388e3c] to-[#1b5e20] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Leaves/Nature */}

@@ -17,6 +17,7 @@ import {
   Wheat,
   Award
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Amhara Bank Services ---
 const AMHARA_SERVICES = [
@@ -110,7 +111,7 @@ export default function AmharaPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Teal & Gold) --- */}
       <section className="relative w-full bg-linear-to-r from-[#00a79d] to-[#007a72] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Community/Dots */}

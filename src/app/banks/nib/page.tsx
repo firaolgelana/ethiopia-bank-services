@@ -18,6 +18,7 @@ import {
   Truck,
   Layers
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Nib Bank Services ---
 const NIB_SERVICES = [
@@ -133,7 +134,7 @@ export default function NibPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Nib Black & Yellow) --- */}
       <section className="relative w-full bg-[#1a1a1a] text-white py-20 px-6 overflow-hidden">
         

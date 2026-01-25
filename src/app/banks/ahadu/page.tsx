@@ -17,6 +17,7 @@ import {
   HeartHandshake, 
   Target
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Ahadu Bank Services ---
 const AHADU_SERVICES = [
@@ -110,7 +111,7 @@ export default function AhaduPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Ahadu Red) --- */}
       <section className="relative w-full bg-linear-to-r from-[#da291c] to-[#b31f15] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Energy/Sparks */}

@@ -18,6 +18,7 @@ import {
   Landmark,
   Home
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Zemen Bank Services ---
 const ZEMEN_SERVICES = [
@@ -113,7 +114,7 @@ export default function ZemenPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Zemen Red) --- */}
       <section className="relative w-full bg-linear-to-br from-[#ed1c24] to-[#a60f14] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Abstract Lines for "Modern Era" */}

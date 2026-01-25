@@ -17,6 +17,7 @@ import {
   Lightbulb,
   Truck
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Tsehay Bank Services ---
 const TSEHAY_SERVICES = [
@@ -108,7 +109,7 @@ export default function TsehayPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Sun Orange & Yellow) --- */}
       <section className="relative w-full bg-linear-to-br from-[#f7931e] to-[#d87c0e] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Sun Rays */}

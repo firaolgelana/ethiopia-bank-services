@@ -17,6 +17,7 @@ import {
   Crown,
   Banknote
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Lion Bank Services ---
 const LION_SERVICES = [
@@ -110,7 +111,7 @@ export default function LionPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Green & Gold) --- */}
       <section className="relative w-full bg-linear-to-r from-[#006b3f] to-[#004d2d] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Shields/Crests */}

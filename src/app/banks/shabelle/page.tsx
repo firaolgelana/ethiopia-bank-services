@@ -17,6 +17,7 @@ import {
   Milk, // Livestock/Dairy focus
   Truck
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Shabelle Bank Services ---
 const SHABELLE_SERVICES = [
@@ -37,7 +38,7 @@ const SHABELLE_SERVICES = [
     id: "shabelle-mobile",
     title: "Shabelle Mobile",
     category: "Digital",
-    description: "Banking across borders. Manage your trade and transfers instantly via our app or USSD *994#.",
+    description: "Banking across borders. Manage your trade and transfers instantly via our app or USSD *8966#.",
     icon: Smartphone,
     action: "Download",
     link: "https://shabellebank.com/"
@@ -110,7 +111,7 @@ export default function ShabellePage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Blue & Green) --- */}
       <section className="relative w-full bg-linear-to-br from-[#0072bc] to-[#005a9e] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: River flow */}
@@ -141,7 +142,7 @@ export default function ShabellePage() {
               </button>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 py-3 px-6 rounded-lg font-medium">
                 <Phone size={20} />
-                <span>Call Center: <strong>994</strong></span>
+                <span>Call Center: <strong>8966</strong></span>
               </div>
             </div>
           </div>
@@ -156,7 +157,7 @@ export default function ShabellePage() {
              </p>
              <div className="bg-[#005a9e]/50 p-3 rounded-lg flex justify-between items-center text-sm border border-white/10">
                 <span>USSD Code</span>
-                <span className="font-mono font-bold text-[#4caf50]">*994#</span>
+                <span className="font-mono font-bold text-[#4caf50]">*8966#</span>
              </div>
           </div>
         </div>

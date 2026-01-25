@@ -17,6 +17,7 @@ import {
   Anchor, // Trade
   Receipt
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Wegagen Bank Services ---
 const WEGAGEN_SERVICES = [
@@ -108,7 +109,7 @@ export default function WegagenPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Wegagen Orange) --- */}
       <section className="relative w-full bg-linear-to-r from-[#e65300] to-[#b34000] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Sun Rays (Dawn) */}
