@@ -17,6 +17,7 @@ import {
   Users,
   Store // Agent Banking
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Siinqee Bank Services ---
 const SIINQEE_SERVICES = [
@@ -112,7 +113,7 @@ export default function SiinqeePage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Siinqee Orange) --- */}
       <section className="relative w-full bg-linear-to-r from-[#e64a19] to-[#bf360c] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Cultural shapes */}

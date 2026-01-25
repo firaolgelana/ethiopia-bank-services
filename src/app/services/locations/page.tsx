@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { MapPin } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // Dynamically import the map (SS: false prevents server-side rendering crash)
 const BankMap = dynamic(() => import("@/components/bank_map"), { 
@@ -16,6 +17,7 @@ const BankMap = dynamic(() => import("@/components/bank_map"), {
 export default function LocationsPage() {
   return (
     <main className="min-h-screen pt-24 px-6 pb-20 bg-background">
+      <Navbar/>
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Header */}

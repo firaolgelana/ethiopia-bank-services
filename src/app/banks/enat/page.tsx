@@ -17,6 +17,7 @@ import {
   Users,
   Flower2
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Enat Bank Services ---
 const ENAT_SERVICES = [
@@ -112,7 +113,7 @@ export default function EnatPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Enat Purple & Yellow) --- */}
       <section className="relative w-full bg-linear-to-br from-[#662d91] to-[#4b216b] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Floral/Soft shapes */}

@@ -19,6 +19,7 @@ import {
   Zap,
   Wheat
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Coopbank Services ---
 const COOP_SERVICES = [
@@ -123,7 +124,7 @@ export default function CoopPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Coop Green) --- */}
       <section className="relative w-full bg-linear-to-r from-[#009640] to-[#007a33] text-white py-20 px-6">
         <div className="absolute inset-0 opacity-10" />

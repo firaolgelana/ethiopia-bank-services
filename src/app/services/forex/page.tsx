@@ -7,6 +7,7 @@ import {
   AlertCircle 
 } from "lucide-react";
 import https from "https"; // Needed for SSL bypass if on Node environment
+import Navbar from "@/components/nav_bar";
 
 // --- 1. Types & Interfaces ---
 interface CbeCurrency {
@@ -127,6 +128,7 @@ export default async function ForexPage() {
 
   return (
     <main className="min-h-screen bg-background pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <Navbar/>
       <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Header Section */}

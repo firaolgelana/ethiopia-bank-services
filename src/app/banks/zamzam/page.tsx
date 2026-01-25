@@ -17,6 +17,7 @@ import {
   HeartHandshake,
   ScrollText
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real ZamZam Bank Services ---
 const ZAMZAM_SERVICES = [
@@ -110,7 +111,7 @@ export default function ZamZamPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Islamic Green & Gold) --- */}
       <section className="relative w-full bg-linear-to-r from-[#009639] to-[#006e2a] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Geometric Islamic Art Style (CSS) */}

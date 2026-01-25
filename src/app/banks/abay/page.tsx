@@ -17,6 +17,7 @@ import {
   Anchor,
   Zap
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Abay Bank Services ---
 const ABAY_SERVICES = [
@@ -110,7 +111,7 @@ export default function AbayPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (River Blue) --- */}
       <section className="relative w-full bg-linear-to-br from-[#005696] to-[#003366] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Waves */}

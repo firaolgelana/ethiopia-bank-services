@@ -9,7 +9,6 @@ export default function ComparisonHighlights() {
             <h2 className="text-3xl font-bold tracking-tight">Market Highlights</h2>
             <p className="text-muted-foreground mt-2">Current best offers across all banks.</p>
           </div>
-          <a href="#" className="text-primary hover:underline mt-4 md:mt-0">View full comparison &rarr;</a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

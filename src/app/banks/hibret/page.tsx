@@ -18,6 +18,7 @@ import {
   Baby,
   Users
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Hibret Bank Services ---
 const HIBRET_SERVICES = [
@@ -131,7 +132,7 @@ export default function HibretPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Hibret Blue & Orange) --- */}
       <section className="relative w-full bg-linear-to-br from-[#005587] to-[#003f63] text-white py-20 px-6 overflow-hidden">
         {/* CSS Pattern: Connected Nodes (Symbolizing Unity) */}

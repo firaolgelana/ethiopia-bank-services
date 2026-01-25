@@ -17,6 +17,7 @@ import {
   HandCoins,
   Scale
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Rammis Bank Services ---
 const RAMMIS_SERVICES = [
@@ -112,7 +113,7 @@ export default function RammisPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Green & Red) --- */}
       <section className="relative w-full bg-linear-to-br from-[#1b5e20] to-[#003300] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Geometric */}

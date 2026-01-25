@@ -17,6 +17,7 @@ import {
   Wallet,
   Car
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Berhan Bank Services ---
 const BERHAN_SERVICES = [
@@ -119,7 +120,7 @@ export default function BerhanPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Yellow & Blue) --- */}
       <section className="relative w-full bg-linear-to-br from-[#fdb913] to-[#e0a00b] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Rays of Light */}

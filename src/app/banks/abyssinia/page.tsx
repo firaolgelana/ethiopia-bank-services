@@ -18,6 +18,7 @@ import {
   ShoppingCart,
   Zap
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Bank of Abyssinia Services ---
 const ABYSSINIA_SERVICES = [
@@ -131,7 +132,7 @@ export default function AbyssiniaPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (BoA Maroon & Gold) --- */}
       <section className="relative w-full bg-linear-to-r from-[#8a1538] to-[#6d0f2b] text-white py-20 px-6">
         <div className="absolute inset-0 opacity-10" />

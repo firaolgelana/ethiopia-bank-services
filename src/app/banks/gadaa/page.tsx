@@ -17,6 +17,7 @@ import {
   Users,
   Wheat
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 // --- Data: Real Gadaa Bank Services ---
 const GADAA_SERVICES = [
@@ -108,7 +109,7 @@ export default function GadaaPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100">
-      
+      <Navbar/>
       {/* --- HERO SECTION (Gadaa Red & Black) --- */}
       <section className="relative w-full bg-linear-to-r from-[#ed1c24] to-[#a00000] text-white py-20 px-6 overflow-hidden">
         {/* Pattern: Cultural Stripes/Shapes */}

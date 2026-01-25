@@ -20,9 +20,9 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "#services" },
-    { name: "Banks", href: "#banks" },
-    { name: "Exchange Rates", href: "#exchange" },
+    { name: "Services", href: "/#services" },
+    { name: "Banks", href: "/#banks" },
+    { name: "Exchange Rates", href: "/#exchange" },
   ];
 
   return (

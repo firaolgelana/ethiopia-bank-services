@@ -10,6 +10,7 @@ import {
   MessageSquare, 
   Loader2 
 } from "lucide-react";
+import Navbar from "@/components/nav_bar";
 
 export default function SupportPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,6 +35,7 @@ export default function SupportPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black pt-24 pb-20 px-6">
+      <Navbar/>
       <div className="max-w-6xl mx-auto">
         
         {/* Page Header */}
